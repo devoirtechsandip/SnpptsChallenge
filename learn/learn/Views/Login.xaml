@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="learn.Views.Login"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:fontawesome="clr-namespace:FontAwesome"
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+    Title="Login"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    IconImageSource="ic_launcher.png">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid
+                Margin="30"
+                IsClippedToBounds="true"
+                RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="200" />
+                    <!--  For logo  -->
+                    <RowDefinition Height="50" />
+                    <!--  For space  -->
+                    <RowDefinition Height="50" />
+                    <!--  For username  -->
+                    <RowDefinition Height="50" />
+                    <!--  For password  -->
+                    <RowDefinition Height="50" />
+                    <!--  For signin  -->
+                    <RowDefinition Height="50" />
+                    <!--  shadow  -->
+                    <RowDefinition Height="50" />
+                    <!--  For forgot password and register  -->
+                    <RowDefinition Height="50" />
+                    <!--  signin with google  -->
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+
+                <Image
+                    Grid.Row="0"
+                    Aspect="AspectFit"
+                    Source="enlighten.png" />
+
+                <Entry
+                    Grid.Row="2"
+                    Margin="0,0,0,10"
+                    BackgroundColor="Transparent"
+                    Keyboard="Email"
+                    Placeholder="Type email"
+                    PlaceholderColor="{StaticResource FontPlaceholderColor}"
+                    Text="{Binding txtEmail}" />
+
+                <Entry
+                    Grid.Row="3"
+                    Margin="0,0,0,10"
+                    BackgroundColor="Transparent"
+                    IsPassword="True"
+                    Placeholder="Type password"
+                    PlaceholderColor="{StaticResource FontPlaceholderColor}"
+                    Text="{Binding txtPassword}" />
+
+                <skia:SKCanvasView Grid.Row="4" PaintSurface="Paint_RoundRect_withoutBorder" />
+                <Button
+                    Grid.Row="4"
+                    BackgroundColor="Transparent"
+                    Command="{Binding SignInCommand}"
+                    FontSize="Medium"
+                    Text="SIGN IN"
+                    TextColor="White" />
+
+                <skia:SKCanvasView Grid.Row="5" PaintSurface="SKCanvasView_PaintSurface" />
+
+
+                <Label
+                    Grid.Row="5"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="OR"
+                    TextColor="{StaticResource FontColor}"
+                    VerticalOptions="Center" />
+
+                <!--<Label
+                Grid.Row="5"
+                HorizontalOptions="StartAndExpand"
+                Text="Forgot Password ?"
+                TextColor="{StaticResource FontPlaceholderColor}"
+                VerticalOptions="End" />
+
+            <Label
+                Grid.Row="5"
+                HorizontalOptions="EndAndExpand"
+                Text="Register"
+                TextColor="{StaticResource FontSecondryColor}"
+                VerticalOptions="End" />-->
+
+                <skia:SKCanvasView Grid.Row="6" PaintSurface="Paint_RoundRect_withBorder" />
+
+                <Button
+                    Grid.Row="6"
+                    BackgroundColor="Transparent"
+                    Command="{Binding SignUpCommand}"
+                    FontSize="Medium"
+                    Text="REGISTER"
+                    TextColor="{StaticResource FontColor}" />
+
+
+                <StackLayout
+                    Grid.Row="8"
+                    HorizontalOptions="CenterAndExpand"
+                    Orientation="Horizontal">
+                    <Label
+                        FontFamily="{StaticResource FontAwesomeBrands}"
+                        FontSize="Large"
+                        HorizontalTextAlignment="Start"
+                        Text="{x:Static fontawesome:FontAwesomeIcons.Google}"
+                        TextColor="{StaticResource FontColor}"
+                        VerticalTextAlignment="Center" />
+
+                    <Button
+                        BackgroundColor="Transparent"
+                        Command="{Binding GSignInCommand}"
+                        FontSize="Medium"
+                        Text="Signin with google"
+                        TextColor="{StaticResource FontColor}" />
+
+
+                </StackLayout>
+
+
+
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

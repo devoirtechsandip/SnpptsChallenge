@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="learn.Views.Profile"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:fontawesome="clr-namespace:FontAwesome"
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    Title="Profile"
+    prism:ViewModelLocator.AutowireViewModel="True">
+    <ContentPage.IconImageSource>
+        <FontImageSource
+            FontFamily="{StaticResource FontAwesomeSolid}"
+            Glyph="{x:Static fontawesome:FontAwesomeIcons.User}"
+            Size="24" />
+    </ContentPage.IconImageSource>
+
+    <ContentPage.Content>
+        <StackLayout Margin="20" Orientation="Vertical">
+            <pancake:PancakeView
+                Padding="10"
+                BackgroundGradientAngle="45"
+                BackgroundGradientEndColor="{StaticResource GradientEndColor}"
+                BackgroundGradientStartColor="{StaticResource GradientStartColor}"
+                CornerRadius="12"
+                HasShadow="True"
+                IsClippedToBounds="true">
+                <pancake:PancakeView.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding LogoutCommand}" />
+                </pancake:PancakeView.GestureRecognizers>
+                <StackLayout Orientation="Horizontal">
+                    <Label
+                        FontFamily="{StaticResource FontAwesomeRegular}"
+                        FontSize="Large"
+                        HorizontalTextAlignment="Start"
+                        Text="{x:Static fontawesome:FontAwesomeIcons.User}"
+                        TextColor="{StaticResource HeaderBorderColor}"
+                        VerticalTextAlignment="Center" />
+
+                    <Label
+                        FontSize="Large"
+                        HorizontalOptions="CenterAndExpand"
+                        HorizontalTextAlignment="Center"
+                        Text="Logout"
+                        TextColor="{StaticResource HeaderBorderColor}"
+                        VerticalTextAlignment="Center" />
+
+                </StackLayout>
+
+            </pancake:PancakeView>
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

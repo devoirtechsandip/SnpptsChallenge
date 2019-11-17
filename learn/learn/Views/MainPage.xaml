@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="learn.Views.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:fontawesome="clr-namespace:FontAwesome"
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+    Title="{Binding Title}">
+
+
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid Margin="30" RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="300" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+
+
+
+                <Image
+                    Grid.Row="0"
+                    Aspect="AspectFit"
+                    Source="enlighten" />
+
+
+                <pancake:PancakeView Grid.Row="1" CornerRadius="25">
+                    <Button
+                        Grid.Row="1"
+                        BackgroundColor="{StaticResource ButtonBackgroundColor}"
+                        Command="{Binding SignInCommand}"
+                        FontSize="Medium"
+                        Text="SIGN IN"
+                        TextColor="White" />
+                </pancake:PancakeView>
+                <skia:SKCanvasView Grid.Row="2" PaintSurface="SKCanvasView_PaintSurface" />
+
+                <pancake:PancakeView
+                    Grid.Row="3"
+                    BorderColor="{StaticResource FontColor}"
+                    BorderThickness="2"
+                    CornerRadius="25">
+
+
+                    <Button
+                        BackgroundColor="Transparent"
+                        Command="{Binding SignUpCommand}"
+                        FontSize="Medium"
+                        Text="REGISTER"
+                        TextColor="{StaticResource FontColor}" />
+
+                </pancake:PancakeView>
+
+
+
+                <StackLayout
+                    Grid.Row="5"
+                    HorizontalOptions="CenterAndExpand"
+                    Orientation="Horizontal">
+                    <Label
+                        FontFamily="{StaticResource FontAwesomeBrands}"
+                        FontSize="Large"
+                        HorizontalTextAlignment="Start"
+                        Text="{x:Static fontawesome:FontAwesomeIcons.Google}"
+                        TextColor="{StaticResource FontColor}"
+                        VerticalTextAlignment="Center" />
+
+                    <Button
+                        BackgroundColor="Transparent"
+                        Command="{Binding GSignInCommand}"
+                        FontSize="Medium"
+                        Text="Signup with google"
+                        TextColor="{StaticResource FontColor}" />
+
+
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+
+</ContentPage>

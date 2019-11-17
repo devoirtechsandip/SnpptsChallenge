@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="learn.Views.DailyNews"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:fontawesome="clr-namespace:FontAwesome"
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:prism="http://prismlibrary.com"
+    Title="News"
+    prism:ViewModelLocator.AutowireViewModel="True">
+    <ContentPage.IconImageSource>
+        <FontImageSource
+            FontFamily="{StaticResource FontAwesomeSolid}"
+            Glyph="{x:Static fontawesome:FontAwesomeIcons.Newspaper}"
+            Size="24" />
+    </ContentPage.IconImageSource>
+    <ContentPage.Resources>
+        <Style TargetType="Grid">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="{StaticResource QuestionBackgroundColor}" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+
+        <Grid RowSpacing="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+
+
+            <CollectionView
+                Margin="10"
+                ItemsSource="{Binding lst_tbl_NewsCategory}"
+                SelectedItem="{Binding SelectedSubject}"
+                SelectionChangedCommand="{Binding SelectMenuItemCommand}"
+                SelectionMode="Single">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="5">
+                            <pancake:PancakeView
+                                CornerRadius="12"
+                                HeightRequest="100"
+                                IsClippedToBounds="true">
+                                <Grid>
+                                    <ffimageloading:CachedImage
+                                        Aspect="AspectFill"
+                                        HorizontalOptions="FillAndExpand"
+                                        Source="{Binding ImageUrl}"
+                                        VerticalOptions="FillAndExpand" />
+                                    <pancake:PancakeView
+                                        BackgroundGradientAngle="180"
+                                        BackgroundGradientEndColor="{StaticResource CardGradientEndColor}"
+                                        BackgroundGradientStartColor="{StaticResource CardGradientStartColor}"
+                                        HorizontalOptions="FillAndExpand"
+                                        VerticalOptions="FillAndExpand" />
+                                    <StackLayout Spacing="0" VerticalOptions="Center">
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="Large"
+                                            HorizontalTextAlignment="Center"
+                                            Text="{Binding category}"
+                                            TextColor="{StaticResource ButtonWhiteBackgroundColor}" />
+                                    </StackLayout>
+                                </Grid>
+                            </pancake:PancakeView>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+
+    </ContentPage.Content>
+
+</ContentPage>

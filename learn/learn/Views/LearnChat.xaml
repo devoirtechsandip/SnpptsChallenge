@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="learn.Views.LearnChat"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:fontawesome="clr-namespace:FontAwesome"
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    Title="Ask"
+    prism:ViewModelLocator.AutowireViewModel="True">
+    <ContentPage.IconImageSource>
+        <FontImageSource
+            FontFamily="{StaticResource FontAwesomeSolid}"
+            Glyph="{x:Static fontawesome:FontAwesomeIcons.Comments}"
+            Size="24" />
+    </ContentPage.IconImageSource>
+
+    <Grid ColumnSpacing="0" RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <CollectionView
+            Grid.Row="0"
+            Margin="5"
+            ItemsSource="{Binding TestChatClass}"
+            ItemsUpdatingScrollMode="KeepLastItemInView">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <!--<ColumnDefinition Width="*" />-->
+                            <ColumnDefinition Width="*" />
+                            <!--<ColumnDefinition Width="*" />-->
+                        </Grid.ColumnDefinitions>
+                        <!--<pancake:PancakeView
+                            Grid.Column="0"
+                            Margin="5"
+                            CornerRadius="20"
+                            HeightRequest="40"
+                            IsClippedToBounds="True">
+                            <ffimageloading:CachedImage
+                                Aspect="AspectFill"
+                                HorizontalOptions="FillAndExpand"
+                                IsVisible="{Binding IsLearnImageVisible}"
+                                Source="https://lh3.googleusercontent.com/L7vH8xvdL_sLm-1bPPUwCBHyJWOk_sDnv_3DsrhzmynCYtorQR_K2bPCTsrRjh4IXRjt=s180-rw"
+                                VerticalOptions="FillAndExpand" />
+                        </pancake:PancakeView>-->
+                        <pancake:PancakeView
+                            Grid.Column="0"
+                            Margin="10"
+                            BackgroundColor="{Binding ChatBackgroundColor}"
+                            CornerRadius="{Binding ChatCornerRadious}"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand">
+                            <Label
+                                Margin="10"
+                                FontSize="17"
+                                Text="{Binding ChatText}"
+                                TextColor="White" />
+                        </pancake:PancakeView>
+                        <!--<pancake:PancakeView
+                            Grid.Column="2"
+                            Margin="5"
+                            CornerRadius="20"
+                            HeightRequest="40"
+                            IsClippedToBounds="True">
+                            <ffimageloading:CachedImage
+                                Aspect="AspectFill"
+                                HorizontalOptions="FillAndExpand"
+                                IsVisible="{Binding IsUserImageVisible}"
+                                Source="https://lh3.googleusercontent.com/L7vH8xvdL_sLm-1bPPUwCBHyJWOk_sDnv_3DsrhzmynCYtorQR_K2bPCTsrRjh4IXRjt=s180-rw"
+                                VerticalOptions="FillAndExpand" />
+                        </pancake:PancakeView>-->
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+            <CollectionView.EmptyView>
+                <StackLayout>
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Please enter your query"
+                        VerticalOptions="CenterAndExpand" />
+                </StackLayout>
+            </CollectionView.EmptyView>
+        </CollectionView>
+
+        <pancake:PancakeView
+            Grid.Row="1"
+            Margin="20,10,20,10"
+            BorderColor="#ebeaef"
+            BorderThickness="1.5"
+            CornerRadius="30"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
+            <Grid Margin="20,0,20,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="8*" />
+                    <ColumnDefinition Width="44" />
+                    <ColumnDefinition Width="44" />
+                </Grid.ColumnDefinitions>
+
+                <Entry
+                    Grid.Column="0"
+                    HorizontalOptions="StartAndExpand"
+                    Placeholder="Type your message here"
+                    PlaceholderColor="#e0e0e0"
+                    Text="{Binding UserQuery}" />
+
+                <ImageButton
+                    Grid.Column="1"
+                    BackgroundColor="Transparent"
+                    Command="{Binding TextInput}"
+                    HorizontalOptions="End">
+                    <ImageButton.Source>
+                        <FontImageSource
+                            FontFamily="{StaticResource FontAwesomeSolid}"
+                            Glyph="{x:Static fontawesome:FontAwesomeIcons.PaperPlane}"
+                            Size="33"
+                            Color="Gray" />
+                    </ImageButton.Source>
+                </ImageButton>
+
+                <ImageButton
+                    Grid.Column="2"
+                    BackgroundColor="Transparent"
+                    Command="{Binding VoiceInput}"
+                    HorizontalOptions="End">
+                    <ImageButton.Source>
+                        <FontImageSource
+                            FontFamily="{StaticResource FontAwesomeSolid}"
+                            Glyph="{x:Static fontawesome:FontAwesomeIcons.Microphone}"
+                            Size="33"
+                            Color="Gray" />
+                    </ImageButton.Source>
+                </ImageButton>
+            </Grid>
+
+        </pancake:PancakeView>
+
+    </Grid>
+</ContentPage>

@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<prism:PrismApplication
+    x:Class="learn.App"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:prism="http://prismlibrary.com">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!--  Application resource dictionary  -->
+
+            <OnPlatform x:Key="FontAwesomeBrands" x:TypeArguments="x:String">
+                <On Platform="Android" Value="FA5Brands.otf#Regular" />
+                <On Platform="iOS" Value="FA5Brands-Regular" />
+            </OnPlatform>
+
+            <OnPlatform x:Key="FontAwesomeSolid" x:TypeArguments="x:String">
+                <On Platform="Android" Value="FA5Solid.otf#Regular" />
+                <On Platform="iOS" Value="FA5Solid-Solid" />
+            </OnPlatform>
+
+            <OnPlatform x:Key="FontAwesomeRegular" x:TypeArguments="x:String">
+                <On Platform="Android" Value="FA5Regular.otf#Regular" />
+                <On Platform="iOS" Value="FA5Regular-Regular" />
+
+            </OnPlatform>
+
+
+
+            <!--  Global Styles  -->
+            <Color x:Key="NavigationPrimary">#2196F3</Color>
+            <Color x:Key="PageBackgroundColor">#BFBFBF</Color>
+            <Color x:Key="LightBackgroundColor">#f6f6f6</Color>
+            <Color x:Key="ButtonBackgroundColor">#FA80B1</Color>
+            <Color x:Key="ButtonWhiteBackgroundColor">#FFFFFF</Color>
+            <Color x:Key="FontColor">#777E8C</Color>
+            <Color x:Key="FontColorSecondry">#009688</Color>
+            <Color x:Key="FontPlaceholderColor">#D5D5D5</Color>
+            <Color x:Key="HeaderBorderColor">#FFFFFF</Color>
+            <Color x:Key="FontSecondryColor">#577CF5</Color>
+            <Color x:Key="SelectedItemColor">#DCEDC8</Color>
+
+            <Color x:Key="TabBarItemColor">#777E8C</Color>
+            <Color x:Key="TabBackColor">#FFFFFF</Color>
+            <Color x:Key="TabSelectedColor">#d24f95</Color>
+            <Color x:Key="CorrectAnsColor">#A5D6A7</Color>
+            <Color x:Key="WrongAnsColor">#FFAB91</Color>
+
+
+            <Color x:Key="GradientStartColor">#d24f95</Color>
+            <Color x:Key="GradientEndColor">#fe5568</Color>
+
+            <Color x:Key="PreviousButtonColor">#26A69A</Color>
+            <Color x:Key="NextButtonColor">#26C6DA</Color>
+
+            <Color x:Key="QuestionBackgroundColor">#EFEBE9</Color>
+            <Color x:Key="ExplainationBackgroundColor">#ECEFF1</Color>
+
+
+            <Color x:Key="CardGradientStartColor">#AA424242</Color>
+            <Color x:Key="CardGradientEndColor">#CC9E9E9E</Color>
+
+
+        </ResourceDictionary>
+    </Application.Resources>
+</prism:PrismApplication>

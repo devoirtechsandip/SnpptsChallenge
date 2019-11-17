@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="learn.Views.Register"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+    Title="Register"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    IconImageSource="ic_launcher.png">
+    <ContentPage.Content>
+        <Grid
+            Margin="30"
+            IsClippedToBounds="true"
+            RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*" />
+                <!--  For logo  -->
+                <RowDefinition Height="*" />
+
+                <RowDefinition Height="*" />
+
+                <RowDefinition Height="*" />
+
+                <RowDefinition Height="*" />
+
+                <RowDefinition Height="*" />
+
+                <RowDefinition Height="*" />
+
+                <RowDefinition Height="*" />
+
+                <RowDefinition Height="*" />
+
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Label
+                Grid.Row="0"
+                FontAttributes="Bold"
+                FontSize="Large"
+                HorizontalTextAlignment="Center"
+                Text="Create New Account"
+                TextColor="{StaticResource FontColor}"
+                VerticalOptions="CenterAndExpand" />
+
+            <Entry
+                Grid.Row="1"
+                Margin="0,0,0,10"
+                Placeholder="Your Name"
+                PlaceholderColor="{StaticResource FontPlaceholderColor}"
+                Text="{Binding txtName}" />
+
+            <Entry
+                Grid.Row="2"
+                Margin="0,0,0,10"
+                Keyboard="Email"
+                Placeholder="Type Email"
+                PlaceholderColor="{StaticResource FontPlaceholderColor}"
+                Text="{Binding txtEmail}" />
+
+            <Entry
+                Grid.Row="3"
+                Margin="0,0,0,10"
+                Keyboard="Telephone"
+                Placeholder="Type Mobile"
+                PlaceholderColor="{StaticResource FontPlaceholderColor}"
+                Text="{Binding txtMobile}" />
+
+            <Entry
+                Grid.Row="4"
+                Margin="0,0,0,10"
+                IsPassword="True"
+                Placeholder="Type Password"
+                PlaceholderColor="{StaticResource FontPlaceholderColor}"
+                Text="{Binding txtPassword}" />
+
+            <CheckBox
+                Grid.Row="5"
+                HorizontalOptions="Start"
+                VerticalOptions="Center"
+                Visual="Material" />
+            <Label
+                Grid.Row="5"
+                FontSize="Small"
+                HorizontalOptions="CenterAndExpand"
+                Text="I agree with Terms and Conditions"
+                TextColor="{StaticResource FontColor}"
+                VerticalOptions="Center" />
+
+            <skia:SKCanvasView Grid.Row="7" PaintSurface="Paint_RoundRect_withoutBorder" />
+            <Button
+                Grid.Row="7"
+                BackgroundColor="Transparent"
+                Command="{Binding SignUpCommand}"
+                FontSize="Medium"
+                Text="REGISTER"
+                TextColor="White" />
+
+            <skia:SKCanvasView Grid.Row="8" PaintSurface="SKCanvasView_PaintSurface" />
+
+
+
+
+
+        </Grid>
+    </ContentPage.Content>
+
+</ContentPage>

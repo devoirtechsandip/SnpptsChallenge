@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage
+    x:Class="learn.Views.TabPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:effect="clr-namespace:learn.Services"
+    xmlns:local="clr-namespace:learn.Views"
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    Title="Enlighten"
+    android:TabbedPage.BarItemColor="{StaticResource TabBarItemColor}"
+    android:TabbedPage.BarSelectedItemColor="{StaticResource TabSelectedColor}"
+    android:TabbedPage.ToolbarPlacement="Bottom"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    BarBackgroundColor="{StaticResource TabBackColor}"
+    BarTextColor="{StaticResource TabBarItemColor}">
+    <TabbedPage.Effects>
+        <effect:NoShiftEffect />
+    </TabbedPage.Effects>
+    <TabbedPage.Children>
+        <local:SubjectList />
+        <local:DailyNews />
+        <local:LearnChat />
+        <local:Profile />
+    </TabbedPage.Children>
+
+</TabbedPage>

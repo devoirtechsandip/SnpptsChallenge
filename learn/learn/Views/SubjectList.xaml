@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="learn.Views.SubjectList"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:b="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+    xmlns:converters="clr-namespace:learn.Converters"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:fontawesome="clr-namespace:FontAwesome"
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    Title="Subjects"
+    prism:ViewModelLocator.AutowireViewModel="True">
+    <ContentPage.IconImageSource>
+        <FontImageSource
+            FontFamily="{StaticResource FontAwesomeSolid}"
+            Glyph="{x:Static fontawesome:FontAwesomeIcons.Book}"
+            Size="24" />
+    </ContentPage.IconImageSource>
+    <ContentPage.Resources>
+        <Style TargetType="Grid">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="{StaticResource QuestionBackgroundColor}" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+
+        <Grid RowSpacing="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="250" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <CarouselView
+                Grid.Row="0"
+                HorizontalScrollBarVisibility="Never"
+                ItemsSource="{Binding QuoteClassList}"
+                PeekAreaInsets="20,0,40,0">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+
+                            <pancake:PancakeView
+                                CornerRadius="10"
+                                HasShadow="True"
+                                IsClippedToBounds="true">
+                                <Grid>
+                                    <ffimageloading:CachedImage
+                                        Aspect="AspectFill"
+                                        HorizontalOptions="FillAndExpand"
+                                        Source="{Binding QuoteImage}"
+                                        VerticalOptions="FillAndExpand" />
+                                    <pancake:PancakeView
+                                        BackgroundGradientAngle="180"
+                                        BackgroundGradientEndColor="{StaticResource CardGradientEndColor}"
+                                        BackgroundGradientStartColor="{StaticResource CardGradientStartColor}"
+                                        HorizontalOptions="FillAndExpand"
+                                        VerticalOptions="FillAndExpand" />
+                                    <StackLayout
+                                        Margin="10"
+                                        Orientation="Vertical"
+                                        Spacing="10">
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontFamily="{StaticResource FontAwesomeSolid}"
+                                            FontSize="Large"
+                                            HorizontalTextAlignment="Start"
+                                            Text="{x:Static fontawesome:FontAwesomeIcons.QuoteLeft}"
+                                            TextColor="{StaticResource ButtonWhiteBackgroundColor}"
+                                            VerticalTextAlignment="Start" />
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="Large"
+                                            HorizontalTextAlignment="Start"
+                                            Text="{Binding QuoteText}"
+                                            TextColor="{StaticResource ButtonWhiteBackgroundColor}"
+                                            VerticalTextAlignment="Start" />
+
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontFamily="{StaticResource FontAwesomeSolid}"
+                                            FontSize="Large"
+                                            HorizontalTextAlignment="End"
+                                            Text="{x:Static fontawesome:FontAwesomeIcons.QuoteRight}"
+                                            TextColor="{StaticResource ButtonWhiteBackgroundColor}"
+                                            VerticalTextAlignment="Start" />
+
+                                        <BoxView BackgroundColor="{StaticResource ButtonWhiteBackgroundColor}" HeightRequest="1" />
+
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+
+                                                <ColumnDefinition Width="3*" />
+                                            </Grid.ColumnDefinitions>
+
+
+
+                                            <Label
+                                                Grid.Column="1"
+                                                FontSize="Medium"
+                                                HorizontalTextAlignment="End"
+                                                Text="{Binding QuoteAuthor}"
+                                                TextColor="{StaticResource ButtonWhiteBackgroundColor}"
+                                                VerticalTextAlignment="Center" />
+                                        </Grid>
+
+                                    </StackLayout>
+                                </Grid>
+                            </pancake:PancakeView>
+
+
+                        </Grid>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+
+            </CarouselView>
+
+
+
+            <Label
+                Grid.Row="1"
+                Margin="10,0,0,0"
+                FontSize="Large"
+                HorizontalOptions="StartAndExpand"
+                Text="Subject List"
+                TextColor="{StaticResource FontColor}"
+                VerticalOptions="CenterAndExpand" />
+
+
+
+            <CollectionView
+                Grid.Row="2"
+                Margin="10"
+                ItemsSource="{Binding lstDashBoardData}"
+                SelectedItem="{Binding SelectedSubject}"
+                SelectionChangedCommand="{Binding SelectMenuItemCommand}"
+                SelectionMode="Single">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="5">
+                            <pancake:PancakeView
+                                CornerRadius="12"
+                                HeightRequest="100"
+                                IsClippedToBounds="true">
+                                <Grid>
+                                    <ffimageloading:CachedImage
+                                        Aspect="AspectFill"
+                                        HorizontalOptions="FillAndExpand"
+                                        Source="{Binding ImageUrl}"
+                                        VerticalOptions="FillAndExpand" />
+                                    <pancake:PancakeView
+                                        BackgroundGradientAngle="180"
+                                        BackgroundGradientEndColor="{StaticResource CardGradientEndColor}"
+                                        BackgroundGradientStartColor="{StaticResource CardGradientStartColor}"
+                                        HorizontalOptions="FillAndExpand"
+                                        VerticalOptions="FillAndExpand" />
+                                    <StackLayout Spacing="0" VerticalOptions="Center">
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="Large"
+                                            HorizontalTextAlignment="Center"
+                                            Text="{Binding Name}"
+                                            TextColor="{StaticResource ButtonWhiteBackgroundColor}" />
+                                    </StackLayout>
+                                </Grid>
+                            </pancake:PancakeView>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                <CollectionView.EmptyView>
+                    <StackLayout>
+
+
+                        <Label Text="No subjects to display" TextColor="{StaticResource FontColor}" />
+                    </StackLayout>
+
+
+
+                </CollectionView.EmptyView>
+            </CollectionView>
+
+
+
+
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>
