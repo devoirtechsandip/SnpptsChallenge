@@ -5,7 +5,6 @@ using Prism.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using learn.Constants;
 using MvvmHelpers;
 using Acr.UserDialogs;
 using Xamarin.Essentials;
