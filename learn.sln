@@ -9,6 +9,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "learn.Android", "learn\lear
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "learn.iOS", "learn\learn.iOS\learn.iOS.csproj", "{6164462E-DF78-4218-902E-233E5C6C1824}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Assets", "Assets", "{66BEC704-F46A-40E3-90A1-217B61F0EC29}"
+	ProjectSection(SolutionItems) = preProject
+		C:\Users\sandiparna\Downloads\New folder (2)\Screenshot_20191117-182623.jpg = C:\Users\sandiparna\Downloads\New folder (2)\Screenshot_20191117-182623.jpg
+		C:\Users\sandiparna\Downloads\New folder (2)\Screenshot_20191117-182628.jpg = C:\Users\sandiparna\Downloads\New folder (2)\Screenshot_20191117-182628.jpg
+		C:\Users\sandiparna\Downloads\New folder (2)\Screenshot_20191117-182636.jpg = C:\Users\sandiparna\Downloads\New folder (2)\Screenshot_20191117-182636.jpg
+		C:\Users\sandiparna\Downloads\New folder (2)\Screenshot_20191117-182650.jpg = C:\Users\sandiparna\Downloads\New folder (2)\Screenshot_20191117-182650.jpg
+		C:\Users\sandiparna\Downloads\New folder (2)\Screenshot_20191117-183621.jpg = C:\Users\sandiparna\Downloads\New folder (2)\Screenshot_20191117-183621.jpg
+		C:\Users\sandiparna\Downloads\New folder (2)\Screenshot_20191117-183633.jpg = C:\Users\sandiparna\Downloads\New folder (2)\Screenshot_20191117-183633.jpg
+		C:\Users\sandiparna\Downloads\New folder (2)\Screenshot_20191117-183641.jpg = C:\Users\sandiparna\Downloads\New folder (2)\Screenshot_20191117-183641.jpg
+		C:\Users\sandiparna\Downloads\New folder (2)\Screenshot_20191117-183647.jpg = C:\Users\sandiparna\Downloads\New folder (2)\Screenshot_20191117-183647.jpg
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
