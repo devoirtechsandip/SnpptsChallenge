@@ -51,8 +51,14 @@
     <key>NSCalendarsUsageDescription</key>
     <string>Needs Calendar Permission</string>
   <key>NSSpeechRecognitionUsageDescription</key>  
-<string>App needs permission for search</string>  
-<key>NSMicrophoneUsageDescription</key>  
-<string>App needs permission for search</string> 
+  <string>App needs permission for search</string>  
+  <key>NSMicrophoneUsageDescription</key>  
+  <string>App needs permission for search</string>
+    <key>UIAppFonts</key>
+    <array>
+      <string>FA5Brands.otf</string>
+      <string>FA5Regular.otf</string>
+      <string>FA5Solid.otf</string>
+    </array>
   </dict>
 </plist>

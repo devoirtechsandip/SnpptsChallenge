@@ -1,5 +1,4 @@
 ﻿using Foundation;
-using Lottie.Forms.iOS.Renderers;
 using Prism;
 using Prism.Ioc;
 
@@ -35,7 +34,7 @@ namespace learn.iOS
             
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
 
-            AnimationViewRenderer.Init();
+            
 
             LoadApplication(new App(new iOSInitializer()));
            
